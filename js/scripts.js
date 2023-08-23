@@ -43,22 +43,22 @@ const generatorPassword = (getLetterLowerCase, getLetterUpperCase, getNumber, ge
     const generators = [];
 
     lettersInput.checked ? generators.push(getLetterLowerCase, getLetterUpperCase) : null;
-    
+
     numbersInput.checked ? generators.push(getNumber) : null;
-    
+
     symbolsInput.checked ? generators.push(getSymbol) : null;
-    
+
     if (generators.length === 0) return;
 
-    
+
     for (let i = 0; i < passwordLength; i++) {
-            const randomValue = generators[random(generators.length)]();
-            password += randomValue;
+        const randomValue = generators[random(generators.length)]();
+        password += randomValue;
     };
 
     generatePasswordElement.style.display = "block"
     generatePasswordElement.querySelector("#generated-password h4").innerText = password;
-    
+
 }
 
 
@@ -68,7 +68,8 @@ generatePasswordButton.addEventListener('click', () => {
         getLetterLowerCase,
         getLetterUpperCase,
         getNumber,
-        getSymbol);
+        getSymbol
+    );
 })
 
 openCloseGeneratorButton.addEventListener('click', () => {
