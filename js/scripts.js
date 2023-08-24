@@ -16,17 +16,11 @@ const random = (max) => {
     return number
 }
 
-const getLetterLowerCase = () => {
-    return String.fromCharCode(random(26) + 97);
-}
+const getLetterLowerCase = () => String.fromCharCode(random(26) + 97);
 
-const getLetterUpperCase = () => {
-    return String.fromCharCode(random(26) + 65);
-}
+const getLetterUpperCase = () => String.fromCharCode(random(26) + 65);
 
-const getNumber = () => {
-    return Math.floor(Math.random() * 10)
-}
+const getNumber = () => random(10)
 
 const getSymbol = () => {
     const symbols = "()[]{},.;:/?!@#$%&*-_=+";
@@ -55,7 +49,7 @@ const generatorPassword = (getLetterLowerCase, getLetterUpperCase, getNumber, ge
         const randomValue = generators[random(generators.length)]();
         password += randomValue;
     };
-
+    
     generatePasswordElement.style.display = "block"
     generatePasswordElement.querySelector("#generated-password h4").innerText = password;
 
